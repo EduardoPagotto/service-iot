@@ -1,0 +1,44 @@
+version: "3.5"
+services:
+
+  # # Database
+  # mongo-db:
+  #   image: mongo:${MONGO_DB_VERSION}
+  #   hostname: mongo-db
+  #   container_name: db-mongo
+  #   expose:
+  #     - "${MONGO_DB_PORT}"
+  #   ports:
+  #     - "${MONGO_DB_PORT}:${MONGO_DB_PORT}" # localhost:27017
+  #   networks:
+  #     - default
+  #   command: --bind_ip_all --smallfiles
+  #   volumes:
+  #     - mongo-db:/data
+
+  # Broker
+  mosquitto:
+    image: eclipse-mosquitto
+    hostname: mosquitto
+    container_name: mosquitto
+    expose:
+      - "1883"
+      - "9001"
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./mosquitto:/mosquitto/config
+      # - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - mosquitto_data:/mosquitto/data
+    networks:
+      - default
+networks:
+  default:
+    ipam:
+      config:
+        - subnet: 172.18.1.0/24
+
+volumes:
+  #mongo-db: ~
+  mosquitto_data:
