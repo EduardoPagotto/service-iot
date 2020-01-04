@@ -29,3 +29,10 @@ mosquitto_sub -u locutus -P Zaq12wsX -h 127.0.0.1 -t local/#
 mosquitto_pub -u locutus -P Zaq12wsX -h 127.0.0.1 -m "teste 123" -t local/t1 -d
 ```
 
+# Python
+## instalacao API
+```bash
+pip3 install paho-mqtt
+```
+
+
