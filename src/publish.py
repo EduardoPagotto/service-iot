@@ -1,6 +1,14 @@
-# Importa o publish do paho-mqtt
-import paho.mqtt.publish as publish
-# Publica
+#!/usr/bin/env python3
+'''
+Created on 20200105
+Update on 20200105
+@author: Eduardo Pagotto
+ '''
 
-publish.single("topico/teste", "Oi, aqui é um teste", hostname="127.0.0.1", auth={'username':'locutus', 'password':'Zaq12wsX'})
+import paho.mqtt.publish as publish
+
+if __name__ == '__main__':
+
+    # Publica
+    publish.single("topico/teste", "Oi, aqui é um teste", hostname="127.0.0.1", auth={'username':'locutus', 'password':'Zaq12wsX'})
 
